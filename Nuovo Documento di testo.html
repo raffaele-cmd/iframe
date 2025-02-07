@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra di Avanzamento</title>
+    <style>
+        /* Stile per la barra di avanzamento */
+        .progress-container {
+            position: fixed;  /* Posiziona la barra fissa in alto */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #f3f3f3;
+            z-index: 1000;  /* Mantieni la barra sopra al contenuto */
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #4caf50; /* Colore della barra */
+            width: 0%; /* Inizia con larghezza 0 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra di avanzamento -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Contenuto della pagina -->
+    <div style="height: 2000px;"> <!-- Semplice contenuto lungo per testare lo scorrimento -->
+        <h1>Scorri giù per vedere la barra di avanzamento!</h1>
+    </div>
+
+    <script>
+        // Funzione per aggiornare la barra di avanzamento in base allo scorrimento
+        window.onscroll = function() {
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var scrollPosition = window.scrollY;
+            var progress = (scrollPosition / docHeight) * 100; // Calcola la percentuale di scorrimento
+
+            // Aggiorna la larghezza della barra di avanzamento
+            document.getElementById("progress-bar").style.width = progress + "%";
+        };
+    </script>
+
+</body>
+</html>
