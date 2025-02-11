@@ -3,42 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barra Scroll</title>
+    <title>Pagina con Stile</title>
     <style>
         body {
-            height: 200vh; /* Altezza estesa per abilitare lo scroll */
+            font-family: Arial, sans-serif;
             margin: 0;
+            padding: 0;
+        }
+
+        /* Intestazione con verde scuro */
+        header {
+            background-color: #2e4a3a;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Zona del testo con verde chiaro */
+        main, .content-section, footer {
+            background-color: #a8d5ba;
+            padding: 20px;
+            min-height: 200px;
+        }
+
+        /* Sezione immagine e casella di testo affiancata */
+        .content-section {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
         }
-        .container {
-            position: fixed;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            transform: translateY(-50%);
+
+        .content-section img {
+            max-width: 50%;
+            height: auto;
         }
-        .bar {
-            height: 20px;
-            background-color: #3498db;
-            width: 0%; /* Larghezza iniziale */
-            transition: width 0.1s linear;
+
+        /* Casella di testo senza bordi, con sfondo verde chiaro */
+        .text-box {
+            width: 50%;
+            height: 200px;
+            padding: 10px;
+            border: none;  /* Bordo invisibile */
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            background-color: #a8d5ba;  /* Sfondo verde chiaro */
+            color: black;
+            resize: none;  /* Disabilita la possibilità di ridimensionare */
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="bar" id="bar"></div>
+
+    <!-- Intestazione della pagina -->
+    <header>
+        <h1>Benvenuti nella Pagina</h1>
+    </header>
+
+    <!-- Zona di testo -->
+    <main>
+        <h2>Testo della pagina</h2>
+        <p>Questa è una pagina HTML con una zona di testo in verde chiaro. Puoi aggiungere qui il contenuto che desideri. Il colore di sfondo è verde chiaro per dare un effetto fresco e rilassante.</p>
+    </main>
+
+    <!-- Sezione con immagine e casella di testo -->
+    <div class="content-section">
+        <!-- Immagine -->
+        <img src="https://via.placeholder.com/800x400" alt="Immagine di esempio">
+
+        <!-- Casella di testo solo per sviluppatori -->
+        <textarea class="text-box" readonly>
+        esempio di casella di testo
+        </textarea>
     </div>
 
-    <script>
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.scrollY;
-            let docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            let scrollPercent = (scrollTop / docHeight) * 100;
-            document.getElementById('bar').style.width = scrollPercent + '%';
-        });
-    </script>
+    <!-- Piè di pagina -->
+    <footer>
+        <p>© 2025 - Tutti i diritti riservati</p>
+    </footer>
+
 </body>
 </html>
